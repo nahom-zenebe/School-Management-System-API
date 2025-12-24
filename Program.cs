@@ -1,7 +1,30 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorPages();
+
+var jwtSettings=builder.Configuration.GetSection("jwt");
+var key=Encoding.UTF8.GetBytes(jwtSettings["Key"]);
+
+
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options=>{
+    options.TokenValidationParameters=new TokenValidationParameters{
+        validateIssuer=true,
+        validateAudience=true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(key)
+    }
+})
+
+builder.Services.AddAuthorization();
+builder.Services.AddControllers();
+builder.Services.AddDbContext<AppDbContext>();
 
 var app = builder.Build();
 
@@ -13,8 +36,11 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
 
+app.UseAuthentication(); 
+app.UseAuthorization();
+app.UseHttpsRedirection();
+app.MapControllers();
 app.UseRouting();
 
 app.UseAuthorization();
