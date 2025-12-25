@@ -1,3 +1,7 @@
+
+namespace Schoolmanagmentsystem.model.class;
+
+
 public class Class
 {
     public int Id { get; set; }

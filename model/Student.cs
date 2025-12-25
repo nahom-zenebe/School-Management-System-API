@@ -1,3 +1,7 @@
+
+namespace Schoolmanagmentsystem.model.Student;
+
+
 public class Student
 {
     public int Id { get; set; }

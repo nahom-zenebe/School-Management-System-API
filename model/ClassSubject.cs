@@ -1,3 +1,7 @@
+
+
+namespace Schoolmanagmentsystem.model.ClassSubject;
+
 public class ClassSubject
 {
     public int ClassId { get; set; }

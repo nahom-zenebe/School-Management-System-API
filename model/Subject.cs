@@ -1,3 +1,7 @@
+
+
+namespace Schoolmanagmentsystem.model.Subject;
+
 public class Subject
 {
     public int Id { get; set; }

@@ -1,3 +1,6 @@
+
+namespace Schoolmanagmentsystem.model.Announcement;
+
 public class Announcement
 {
     public int Id { get; set; }

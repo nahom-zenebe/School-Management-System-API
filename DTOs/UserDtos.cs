@@ -1,4 +1,6 @@
 
+namespace Schoolmanagmentsystem.DTOs.UserDtos
+;
 
 public class RegisterDto{
     public string Name{get;set;}

@@ -1,4 +1,6 @@
 
+namespace Schoolmanagmentsystem.model.User;
+
 
 public enum RoleTypes{
     User,

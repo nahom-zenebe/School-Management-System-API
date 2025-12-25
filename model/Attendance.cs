@@ -1,3 +1,6 @@
+
+namespace Schoolmanagmentsystem.model.Attendance;
+
 public class Attendance
 {
     public int Id { get; set; }
