@@ -12,5 +12,8 @@ public class StudentProfile : Profile
         CreateMap<Student, StudentDto>();
         CreateMap<CreateStudentDto, Student>();
         CreateMap<ResponseStudentDto, Student>();
+        CreateMap<UpdateStudentDto, Student>();
+
+
     }
 }

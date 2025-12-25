@@ -17,3 +17,11 @@ public class ResponseStudentDto{
     public int ClassId { get; set; }
     public int TotalAttendance { get; set; }
 }
+
+public class UpdateStudentDto{
+     public string StudentCode { get; set; }
+    public DateTime DateOfBirth { get; set; }
+    public int ClassId { get; set; }
+    public int TotalAttendance { get; set; }
+
+}
